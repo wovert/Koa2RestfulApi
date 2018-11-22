@@ -94,36 +94,42 @@ class articleController {
      * @returns {Promise.<void>}
      */
     static async info(ctx) {
-      let id = ctx.params.id;
-      if (id) {
+ 
         try {
             // 查询文章详情模型
-            const fileUrl = 'https://new.qq.com/cmsn/20181120/20181120013980.html';
-            let data = await ArticleModel.getReadApi(fileUrl);
-            console.log(data);
-            ctx.response.status = 200;
+            const url = 'https://new.qq.com/omn/20181122/20181122A0AJA6.html';
             ctx.body = {
-                code: 200,
-                msg: '查询成功',
-                data
+                data: {}
             }
+            let data = await callApi(url,ctx);
+            console.log(data);
+
+            ctx.response.status = 200;
+            ctx.body.code = 200;
+            ctx.body.msg = '查询成功';
 
         } catch (err) {
             ctx.response.status = 412;
             ctx.body = {
                 code: 412,
-                msg: '查询失败',
-                data
+                msg: '查询失败'
             }
         }
-      } else {
-        ctx.response.status = 416;
-        ctx.body = {
-            code: 416,
-            msg: '文章ID必须传'
-        }
-      }
+      
     }
+}
+
+async function callApi(url, ctx){
+
+    return new Promise((resolve, reject) => read(url, (err, article, meta) => {
+        ctx.body.data.title = article.title;
+        // ctx.body.data.content = article.content;
+        console.log(meta);
+        console.log(article)
+        resolve(article);
+    }));
+
+
 }
 
 module.exports = articleController

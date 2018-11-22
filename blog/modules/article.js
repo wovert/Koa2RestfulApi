@@ -12,9 +12,6 @@ const Article = Sequelize.import('../schema/article');
 // 自动创建表
 Article.sync({force: false});
 
-const read = require('../lib/readability');
-
-
 class ArticleModel {
     /**
      * 创建文章模型
@@ -43,27 +40,6 @@ class ArticleModel {
         })
     }
 
-    /**
-     * 查询取文章详情数据
-     * @param id  文章ID
-     * @returns {Promise<Model>}
-     */
-    static async getReadApi(fileUrl) {
-        let result = await read(fileUrl, function(err, article, meta) {
-            var dom = article.document;
-            //var html = '<html><head><meta charset="utf-8"><title>'+dom.title+'</title></head><body><h1>'+article.title+'</h1>'+article.content+'</body></html>';
-            
-            console.log(dom.title);
-
-            return {
-                title: dom.title
-            }
-        });
-        
-        console.log('result:', result);
-
-        return result;
-    }    
 }
 
 module.exports = ArticleModel
