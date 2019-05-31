@@ -93,7 +93,6 @@ var grabArticle = module.exports.grabArticle = function(document, preserveUnlike
    * TODO: Shouldn't this be a reverse traversal?
    **/
   var nodes = document.getElementsByTagName('*');
-  console.log(nodes);return;
   
   for (var i = 0; i < nodes.length; ++i) {
     var node = nodes[i];

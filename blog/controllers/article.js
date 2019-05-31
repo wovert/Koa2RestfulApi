@@ -96,17 +96,23 @@ class articleController {
     static async info(ctx) {
  
         try {
-            // 查询文章详情模型
-            const url = 'https://new.qq.com/omn/20181122/20181122A0AJA6.html';
-            ctx.body = {
-                data: {}
+            let url = ctx.params.url;
+            let query = ctx.query;
+            if(query.url && query.url != '') {
+                // console.log(url);
+                url = query.url
+                ctx.body = {
+                    data: {}
+                }
+                let data = await callApi(url,ctx);
+                console.log(data);
+    
+                ctx.response.status = 200;
+                ctx.body.code = 200;
+                ctx.body.msg = '查询成功';                
             }
-            let data = await callApi(url,ctx);
-            console.log(data);
 
-            ctx.response.status = 200;
-            ctx.body.code = 200;
-            ctx.body.msg = '查询成功';
+
 
         } catch (err) {
             ctx.response.status = 412;
@@ -123,9 +129,9 @@ async function callApi(url, ctx){
 
     return new Promise((resolve, reject) => read(url, (err, article, meta) => {
         ctx.body.data.title = article.title;
-        // ctx.body.data.content = article.content;
-        console.log(meta);
-        console.log(article)
+        ctx.body.data.content = article.content;
+        // console.log(meta);
+        // console.log(article)
         resolve(article);
     }));
 

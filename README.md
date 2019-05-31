@@ -1,47 +1,27 @@
-# Koa2RestfulApi
+# koa
 
-Koa2 接口开发
+## koa-generator
 
-## 1. 环境安装
-
-- node 版本: v8.11.3
-- npm 版本: 5.6.0
-
-- 设置国内镜像: `npm config set registry https://registry.npm.taobao.org `
-
-## 2. 项目搭建
-
-- 第一步: 安装koa-generator
-
-``` shell
-$ npm install koa-generator -g
+```sh
+npm config set registry https://registry.npm.taobao.org
+npm i -g koa-generator
+koa2 -e project
+cd project
+npm install
+npm run start
+npm run dev
+curl http://localhost:3000
 ```
 
-- 第二步：使用koa-generator生成koa2项目
+## koa2 中间件
 
-``` shell
-$ koa2 blog
-```
+## koa2 路由
 
-- 第三步：安装包
+## cookie/session
 
-``` shell
-进入blog项目
-$ cd blog
+## mongoose
 
-安装服务
-$ npm install
-```
-
-- 第四步：启动服务
-
-``` shell
-$ npm start
-```
-
-打开浏览器：`http://localhost:3000/`
-
-## 3. 了解koa2的核心对象
+## koa2 核心对象
 
 - Application 服务类
   - 创建对象 => 传入中间件use(fn) => 生成一个HTTP服务器const server => http.createServer(this.callback()) => 处理响应（handleRequest）=> 返回实例
@@ -50,11 +30,13 @@ $ npm start
 - [学习文档：Response 响应对象](https://github.com/demopark/koa-docs-Zh-CN/blob/master/api/response.md)
 - [学习文档：Middlewares  中间件](https://github.com/demopark/koa-docs-Zh-CN#%E4%B8%AD%E9%97%B4%E4%BB%B6)
 
-## 4. 安装Sequelize
+## Sequelize
+
+### 安装 Sequelize
 
 > Sequelize 是一个基于 promise 的 Node.js ORM, 目前支持 Postgres, MySQL, SQLite 和 Microsoft SQL Server. 它具有强大的事务支持, 关联关系, 读取和复制等功能
 
-``` shell
+``` sh
 $ npm install sequelize --save
 
 安装mysql，mysql2
@@ -62,7 +44,7 @@ $ npm install sequelize --save
 $ npm install mysql mysql2 --save
 ```
 
-## 5. 配置Sequelize
+### 配置Sequelize
 
 > 根目录下新建一个config文件，在config文件下新建一个db.js文件，这个文件就是用来建立连接mysql数据库的:
 
@@ -77,7 +59,7 @@ $ npm install mysql mysql2 --save
 - password ：本地数据库密码
 
 ``` js
-const Sequelize = require('sequelize');
+const Sequelize = require('sequelize')
 
 const sequelize = new Sequelize('blogs', 'root', 'password', {
     host: 'localhost',
@@ -522,3 +504,8 @@ app.use(cors());
 - jsdom": "^9.12.0"
 - minimist": "^1.2.0"
 - request": "^2.81.0"
+
+## 生产环境项目部署
+
+`npm install -g pm2`
+

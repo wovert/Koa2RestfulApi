@@ -259,54 +259,8 @@ function read(html, options, callback) {
         jsdomParse(null, res, buffer);
       }
 
-
-
-      // if (err) {
-      //   reject(err);
-      // } else {
-      //   resolve(body);
-      // }
-
-
-
-
     }));
 
-
-    // // 地址请求地址
-    // request(html, options, function(err, res, buffer) {
-    //   if (err) {
-    //     return callback(err);
-    //   }
-
-    //   // { mimeType: 'text/html', charset: 'gb2312' }
-    //   var content_type = _parseContentType(res.headers['content-type']);
-      
-    //   // 内容类型
-    //   if (content_type.mimeType == "text/html") {
-    //     content_type.charset = _findHTMLCharset(buffer) || content_type.charset;
-    //   }
-
-    //   // 字符编码类型 utf-8
-    //   content_type.charset = (overrideEncoding || content_type.charset || "utf-8").trim().toLowerCase();
-
-    //   // 二进制内容
-    //   if (!content_type.charset.match(/^utf-?8$/i)) {
-    //     buffer = encodinglib.convert(buffer, "UTF-8", content_type.charset);
-    //   }
-
-    //   // 二进制类型转换为字符类型
-    //   buffer = buffer.toString();
-
-    //   if (preprocess) {
-    //     preprocess(buffer, res, content_type, function(err, buffer) {
-    //       if (err) return callback(err);
-    //       jsdomParse(null, res, buffer);
-    //     });
-    //   } else {
-    //     jsdomParse(null, res, buffer);
-    //   }
-    // });
   }
 
   /**
