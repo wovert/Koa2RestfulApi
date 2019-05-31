@@ -5,6 +5,10 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
+const pv = require('./middleware/koa-pv')
+const m1 = require('./middleware/m1')
+const m2 = require('./middleware/m2')
+const m3 = require('./middleware/m3')
 
 const index = require('./routes/index')
 const users = require('./routes/users')
@@ -16,6 +20,10 @@ onerror(app)
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text']
 }))
+app.use(pv()) // 自定义中间件
+app.use(m2()) // 自定义中间件
+app.use(m1()) // 自定义中间件
+app.use(m3()) // 自定义中间件
 app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))

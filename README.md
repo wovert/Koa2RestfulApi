@@ -15,9 +15,44 @@ curl http://localhost:3000
 
 ## koa2 中间件
 
+![中间件原理](./imgs/middleware.png)
+
+```sh
+mkdir middleware
+cd middleware
+vim koa-pv.js
+```
+
 ## koa2 路由
 
+./app.js
+
+```js
+const app = new Koa()
+const users = require('./routes/users')
+app.use(index.routes(), index.allowedMethods())
+```
+
+./routers/users.js
+
+```js
+const router = require('koa-router')()
+router.prefix('/users') // 路由前缀
+router.get('/', function (ctx, next) {
+  ctx.body = 'this is a users response!'
+})
+
+router.get('/bar', function (ctx, next) {
+  ctx.body = 'this is a users/bar response'
+})
+module.exports = router
+```
+
 ## cookie/session
+
+- cookie和session定义
+- 写cookie: `ctx.cookies.set('pvid', Math.random())`
+- 读cookie: `ctx.cookies.get('pvid')`
 
 ## mongoose
 
