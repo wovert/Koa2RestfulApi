@@ -6,6 +6,17 @@
 - Java SpringBoot(同步编程)
 - NodeJS Koa(异步编程)
 
+## 软件与环境
+
+- 框架/库： Node, npm, koa, nodemon, pm2
+- 软件工具：MySQL(XAMPP), 微信开发者工具, VS Code, PostMAN, Navicate,
+
+## Node 应用
+
+- 前段工程
+- 服务端API
+- 中间件
+
 ## Init project and setup modules
 
 ```sh
