@@ -1,7 +1,8 @@
-const routerClassic = require('koa-router')()
+const Router = require('koa-router')
+const router = Router()
 
-routerClassic.get('/v1/classic/latest', (ctx, next) => {
+router.get('/v1/classic/latest', (ctx, next) => {
   ctx.body = { key: 'classic' }
 })
 
-module.exports = routerClassic
+module.exports = router

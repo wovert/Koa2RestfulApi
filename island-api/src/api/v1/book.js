@@ -1,7 +1,8 @@
-const routerBook = require("koa-router")()
+const Router = require('koa-router')
+const router = Router()
 
-routerBook.get('/v1/book/latest', (ctx, next) => {
+router.get('/v1/book/latest', (ctx, next) => {
   ctx.body = { key: "book" }
 })
 
-module.exports = routerBook
+module.exports = router
