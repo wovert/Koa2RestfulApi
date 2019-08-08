@@ -4,9 +4,20 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Node调试",
+      "name": "nodemon",
       "runtimeExecutable": "nodemon",
-      "program": "${workspaceFolder}/dist/server.js",
+      "program": "${workspaceFolder}/island-api/src/server.ts",
+      "restart": true,
+      "outFiles": ["${workspaceFolder}/island-api/dist/**/*.js"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "island-api调试",
+      "runtimeExecutable": "nodemon",
+      "program": "${workspaceFolder}/island-api/dist/server.js",
       "restart": true,
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
@@ -15,9 +26,9 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/dist/server.js",
+      "program": "${workspaceFolder}/island-api/dist/server.js",
       "preLaunchTask": "npm: build",
-      "outFiles": ["${workspaceFolder}/dist/**/*.js"]
+      "outFiles": ["${workspaceFolder}/island-api/dist/**/*.js"]
     }
   ]
 }

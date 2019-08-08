@@ -1,12 +1,10 @@
 # Island RestAPI
 
-## MySQL 并发
+## RestAPI 技术实现
 
-- 悲观锁
-- 乐观锁
-- 事务
-- 脏读
-- 幻读
+- Python Flask/Django(同步编程)
+- Java SpringBoot(同步编程)
+- NodeJS Koa(异步编程)
 
 ## Init project and setup modules
 
@@ -61,6 +59,7 @@ vim tslint.json
       "no-var-keyword": true,
       "quotemark": [
         true,
+        "double",
         "single",
         "avoid-escape"
       ],
